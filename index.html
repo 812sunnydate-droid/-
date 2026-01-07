@@ -1,155 +1,273 @@
-<!DOCTYPE html>
-<html lang="zh-Hant-TW">
-<head>
+<!DOCTYPE html><html lang="zh-Hant-TW"><head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>永隆陞建設 | 景上居官方網站</title>
+
     <style>
+
         :root {
+
             --yls-gold: #c5a66d;
+
             --yls-navy: #101d2d;
+
             --card-shadow: 0 40px 80px rgba(0,0,0,0.2);
+
         }
+
+
 
         /* 核心：增強像素清晰度與渲染品質 */
+
         .pixel-optimized {
+
             image-rendering: -webkit-optimize-contrast;
+
             image-rendering: auto;
+
             -webkit-font-smoothing: antialiased;
+
             transform: translateZ(0);
+
             filter: contrast(1.05) brightness(1.02) saturate(1.05);
+
             background-repeat: no-repeat;
+
             background-size: cover;
+
             background-position: center;
+
         }
+
+
 
         body { font-family: "PingFang TC", "Noto Sans TC", sans-serif; margin: 0; background-color: #f8f9fa; color: #333; }
+
         
+
         nav { background: #fff; padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
         .logo { font-size: 1.6rem; font-weight: 800; color: var(--yls-navy); letter-spacing: 4px; }
 
+
+
         /* 封面區：更換為您指定的照片 */
+
         .hero { 
+
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('REPLACE_WITH_IMAGE_URL'); 
+
             height: 65vh;
+
             display: flex; justify-content: center; align-items: center; color: #fff;
+
         }
+
         .hero h1 { font-size: 4rem; letter-spacing: 12px; text-shadow: 0 10px 30px rgba(0,0,0,0.5); font-weight: 900; }
+
+
 
         .container { max-width: 1400px; margin: -100px auto 80px; padding: 0 40px; position: relative; z-index: 10; }
 
+
+
         .main-card { display: flex; flex-wrap: wrap; background: #fff; border-radius: 30px; overflow: hidden; box-shadow: var(--card-shadow); }
+
         
+
         .gallery-wrap { flex: 1.5; background: #111; padding: 30px; }
+
         .featured-img { 
+
             width: 100%; height: 580px; 
+
             border-radius: 20px; margin-bottom: 20px;
+
             box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+
             transition: opacity 0.4s ease;
+
             background-color: #222;
+
         }
+
+
 
         .thumb-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+
         .thumb { 
+
             width: 100%; aspect-ratio: 4 / 3; 
+
             border-radius: 12px; cursor: pointer; transition: 0.4s; opacity: 0.5; border: 2px solid transparent;
+
         }
+
         .thumb:hover, .thumb.active { opacity: 1; border-color: var(--yls-gold); transform: scale(1.05); }
 
+
+
         .info-box { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
+
         .price-tag { 
+
             background: var(--yls-gold); color: #fff; padding: 12px 40px; 
+
             border-radius: 60px; font-weight: 900; font-size: 1.6rem; margin-bottom: 30px;
+
             width: fit-content; box-shadow: 0 10px 25px rgba(197, 166, 109, 0.4);
+
         }
+
         
+
         h2 { font-size: 3rem; color: var(--yls-navy); margin: 0 0 15px 0; font-weight: 900; letter-spacing: 2px; }
+
         .sub-title { font-size: 1.3rem; color: var(--yls-gold); font-weight: 700; letter-spacing: 4px; margin-bottom: 40px; border-bottom: 3px solid #f0f0f0; padding-bottom: 20px; }
 
+
+
         .specs { list-style: none; padding: 0; margin-bottom: 45px; }
+
         .specs li { margin-bottom: 22px; font-size: 1.2rem; border-left: 6px solid var(--yls-gold); padding-left: 20px; color: #444; }
+
         .specs b { color: var(--yls-navy); width: 120px; display: inline-block; }
 
+
+
         .actions { display: flex; flex-direction: column; gap: 20px; }
+
         .btn { 
+
             display: flex; align-items: center; justify-content: center; 
+
             padding: 22px; border-radius: 18px; text-decoration: none; 
+
             font-weight: 800; font-size: 1.3rem; transition: 0.4s; 
+
         }
+
         .btn-call { background: var(--yls-navy); color: white; }
+
         .btn-fb { background: #1877F2; color: white; }
+
         .btn:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+
+
 
         footer { background: var(--yls-navy); color: #999; padding: 80px 40px; text-align: center; line-height: 2; }
 
+
+
         @media (max-width: 1200px) {
+
             .main-card { flex-direction: column; }
+
             .hero h1 { font-size: 2.5rem; }
+
             .featured-img { height: 400px; }
+
         }
-    </style>
-</head>
-<body>
+
+    </style></head><body>
+
+
 
     <nav><div class="logo">永隆陞建設</div></nav>
 
+
+
     <div class="hero pixel-optimized" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('REPLACE_WITH_IMAGE_URL');">
+
         <h1>職人建築．精品電梯別墅</h1>
+
     </div>
+
+
 
     <div class="container">
+
         <div class="main-card">
-            <div class="gallery-wrap">
-                <div id="main-view" class="featured-img pixel-optimized" style="background-image: url('REPLACE_WITH_IMAGE_URL');"></div>
-                
-                <div class="thumb-grid">
-                    <div class="thumb active pixel-optimized" onclick="swapImg(this, 'REPLACE_WITH_IMAGE_URL')" style="background-image: url('REPLACE_WITH_IMAGE_URL');"></div>
-                    <div class="thumb pixel-optimized" onclick="swapImg(this, 'https://i.ibb.co/fJZcwNr/image.jpg')" style="background-image: url('https://i.ibb.co/fJZcwNr/image.jpg');"></div>
-                    <div class="thumb pixel-optimized" onclick="swapImg(this, 'https://i.ibb.co/xq7mNzh/image.jpg')" style="background-image: url('https://i.ibb.co/xq7mNzh/image.jpg');"></div>
-                    <div class="thumb pixel-optimized" onclick="swapImg(this, 'https://i.ibb.co/hFxT46C/image.jpg')" style="background-image: url('https://i.ibb.co/hFxT46C/image.jpg');"></div>
-                    <div class="thumb pixel-optimized" onclick="swapImg(this, 'https://i.ibb.co/7tthmP1/image.jpg')" style="background-image: url('https://i.ibb.co/7tthmP1/image.jpg');"></div>
-                </div>
-            </div>
-            
+
             <div class="info-box">
+
                 <div class="price-tag">總價 7,980 萬</div>
+
                 <h2>永隆陞景上居</h2>
+
                 <p class="sub-title">北屯十期．頂級電梯店墅</p>
+
                 <ul class="specs">
+
                     <li><b>建案位置</b> 台中市北屯區松竹五路二段</li>
+
                     <li><b>產品規劃</b> 5層樓 / 頂級石材外觀</li>
+
                     <li><b>室內空間</b> 5大房 / 3廳 / 7衛</li>
+
                     <li><b>建物坪數</b> 109 - 117 坪</li>
+
                     <li><b>現況說明</b> 職人手作．全新落成</li>
+
                 </ul>
+
                 <div class="actions">
+
                     <a href="tel:0424068802" class="btn btn-call">📞 賞屋專線：04-2406-8802</a>
+
                     <a href="https://www.facebook.com/search/top?q=%E6%B0%B8%E9%9A%86%E9%99%9E%E5%BB%BA%E8%A8%AD" target="_blank" class="btn btn-fb">🌐 官方粉絲團</a>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
 
+
+
     <footer>
+
         <p>永隆陞建設有限公司 | 地址：台中市大里區永隆路377號1樓</p>
+
         <p>&copy; 2026 YONG LONG SHENG. ALL RIGHTS RESERVED.</p>
+
     </footer>
 
+
+
     <script>
+
         function swapImg(el, url) {
+
             const main = document.getElementById('main-view');
+
             main.style.opacity = '0.3';
+
             
+
             const tempImg = new Image();
+
             tempImg.src = url;
+
             tempImg.onload = function() {
+
                 main.style.backgroundImage = `url('${url}')`;
+
                 main.style.opacity = '1';
+
             };
 
+
+
             document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+
             el.classList.add('active');
+
         }
-    </script>
-</body>
-</html>
+
+    </script></body></html>
