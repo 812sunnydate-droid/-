@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JLPT N3 單字王</title>
+<style>
+body{font-family:sans-serif;max-width:900px;margin:auto;padding:15px}
+.card{border:1px solid #ddd;border-radius:12px;padding:20px}
+button{width:100%;padding:12px;margin:6px 0;font-size:16px}
+.menu button{width:auto}
+#word{font-size:32px;text-align:center;margin:20px}
+</style>
+</head>
+<body>
+<h2>📚 JLPT N3 單字王</h2>
+
+<div class="menu">
+模式：
+<button onclick="mode='jp2zh'">日文→中文</button>
+<button onclick="mode='zh2jp'">中文→日文</button>
+</div>
+
+<p id="stats"></p>
+
+<div class="card">
+<div id="word"></div>
+<div id="choices"></div>
+<p id="result"></p>
+</div>
+
+<script>
+const vocab=[
+["信頼","しんらい","信任"],["準備","じゅんび","準備"],["成功","せいこう","成功"],
+["努力","どりょく","努力"],["進歩","しんぽ","進步"],["新鮮","しんせん","新鮮"],
+["ストレス","ストレス","壓力"],["治療","ちりょう","治療"],["投票","とうひょう","投票"],
+["通訳","つうやく","翻譯"],["複習","ふくしゅう","複習"],["変更","へんこう","變更"],
+["保護","ほご","保護"],["迷子","まいご","迷路的人"],["人数","にんずう","人數"],
+["悩む","なやむ","煩惱"],["寝不足","ねぶそく","睡眠不足"],["秘密","ひみつ","秘密"]
+];
+
+let mode="jp2zh";
+let data=JSON.parse(localStorage.getItem("n3master")||'{"correct":0,"wrong":0,"review":[]}');
+
+let daily=[...vocab].sort(()=>Math.random()-0.5).slice(0,30);
+let idx=0;
+
+function updateStats(){
+ stats.innerHTML=`✅${data.correct} ❌${data.wrong} 待複習:${data.review.length}`;
+}
+
+function ask(){
+ if(idx>=daily.length){word.innerHTML="🎉 今日30題完成";choices.innerHTML="";return;}
+ let v=daily[idx];
+ result.innerHTML="";
+
+ if(mode==="jp2zh"){
+   word.innerHTML=v[1]; // 只顯示平假名/片假名
+   var correct=v[2];
+   var pool=vocab.map(x=>x[2]);
+ }else{
+   word.innerHTML=v[2];
+   var correct=v[1];
+   var pool=vocab.map(x=>x[1]);
+ }
+
+ let opts=[correct];
+ while(opts.length<3){
+   let r=pool[Math.floor(Math.random()*pool.length)];
+   if(!opts.includes(r)) opts.push(r);
+ }
+ opts.sort(()=>Math.random()-0.5);
+
+ choices.innerHTML=opts.map(o=>`<button onclick="answer('${o}')">${o}</button>`).join("");
+ window.correctAns=correct;
+ window.current=v;
+}
+
+function answer(x){
+ if(x===correctAns){
+   result.innerHTML="🟢 正確";
+   data.correct++;
+ }else{
+   result.innerHTML="🔴 錯誤";
+   data.wrong++;
+   data.review.push(current);
+ }
+ localStorage.setItem("n3master",JSON.stringify(data));
+ updateStats();
+ idx++;
+ setTimeout(ask,500);
+}
+
+updateStats();
+ask();
+</script>
+</body>
+</html>
